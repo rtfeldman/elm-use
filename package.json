@@ -1,6 +1,6 @@
 {
   "name": "elm-use",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Switch between different versions of Elm.",
   "main": "use.js",
   "scripts": {
