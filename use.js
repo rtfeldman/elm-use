@@ -3,7 +3,7 @@
 var path = require("path");
 var requestedVersion = process.argv[2];
 
-if (typeof requestedVersion === "undefined") {
+if (typeof requestedVersion !== "string" || !requestedVersion.match(/\d+/)) {
   var packageInfo = require(path.join(__dirname, "package.json"));
 
   console.log("elm-use v" + packageInfo.version);
