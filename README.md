@@ -2,6 +2,8 @@
 
 Switch between Elm versions. If you switch to a version you do not have, it will be installed.
 
+![demo](https://cloud.githubusercontent.com/assets/1094080/21740236/4d59430a-d468-11e6-85c6-9f2e1c9ec638.gif)
+
 ### NOTE
 
 Make sure to uninstall any previous versions of Elm before using this!
