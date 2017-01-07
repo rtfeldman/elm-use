@@ -50,13 +50,15 @@ if (fs.existsSync(currentVersionDir)) {
   var filename = operatingSystem + "-" + arch + ".tar.gz";
   var url = "https://dl.bintray.com/elmlang/elm-platform/"
     + targetVersion + "/" + filename;
+  var errorMessage = "Unfortunately, there are no Elm Platform " + requestedVersion + " binaries available for your operating system and architecture.\n\nIf you would like to build Elm from source, there are instructions at https://github.com/elm-lang/elm-platform#build-from-source\n";
 
   console.log("Installing Elm " + requestedVersion + "...");
 
-  binstall(url, {path: currentVersionDir, strip: 1}).then(function() {
+  binstall(url, {path: currentVersionDir, strip: 1}, {errorMessage: errorMessage}).then(function() {
     activate();
   }).catch(function(err) {
-    console.error("Error downloading binaries for Elm " + targetVersion);
+    fsExtra.removeSync(currentVersionDir);
+    console.error("Error downloading binaries for Elm " + requestedVersion);
     console.error(err);
     process.exit(1);
   });

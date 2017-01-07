@@ -21,6 +21,7 @@
     "url": "https://github.com/rtfeldman/elm-use/issues"
   },
   "bin": {
+    "elm-use": "use.js",
     "elm": "binaries/elm",
     "elm-make": "binaries/elm-make",
     "elm-package": "binaries/elm-package",
@@ -29,7 +30,7 @@
   },
   "homepage": "https://github.com/rtfeldman/elm-use#readme",
   "dependencies": {
-    "binstall": "1.1.0",
+    "binstall": "1.2.0",
     "fs-extra": "1.0.0",
     "homedir": "0.6.0"
   }
