@@ -30,7 +30,7 @@ var fs = require("fs");
 var fsExtra = require("fs-extra");
 var homedir = require("homedir");
 var binariesDir = path.join(__dirname, "binaries");
-var currentVersionDir = path.join(homedir(), ".use_elm", targetVersion);
+var currentVersionDir = path.join(homedir(), ".elm-use", "versions", targetVersion);
 
 function activate() {
   fsExtra.copySync(currentVersionDir, binariesDir);
