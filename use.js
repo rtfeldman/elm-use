@@ -1,8 +1,12 @@
+#!/usr/bin/env node
+
 var path = require("path");
 var requestedVersion = process.argv[2];
 
 if (typeof requestedVersion === "undefined") {
-  console.log("use-elm")
+  var packageInfo = require(path.join(__dirname, "package.json"));
+
+  console.log("elm-use v" + packageInfo.version);
 
   process.exit(1);
 }
