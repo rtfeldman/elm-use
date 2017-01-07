@@ -50,13 +50,19 @@ if (fs.existsSync(currentVersionDir)) {
   var operatingSystem = process.platform;
 
   var filename = operatingSystem + "-" + arch + ".tar.gz";
-  var url = "https://dl.bintray.com/elmlang/elm-platform/"
+  var platformUrl = "https://dl.bintray.com/elmlang/elm-platform/"
     + targetVersion + "/" + filename;
-  var errorMessage = "Unfortunately, there are no Elm Platform " + requestedVersion + " binaries available for your operating system and architecture.\n\nIf you would like to build Elm from source, there are instructions at https://github.com/elm-lang/elm-platform#build-from-source\n";
+  var platformError = "Unfortunately, there are no Elm Platform " + requestedVersion + " binaries available for your operating system and architecture.\n\nIf you would like to build Elm from source, there are instructions at https://github.com/elm-lang/elm-platform#build-from-source\n";
+  var elmFormatUrl = "https://dl.bintray.com/elmlang/elm-format/"
+    + targetVersion + "/latest/" + filename;
+  var elmFormatError = "Warning: there is no elm-format " + requestedVersion + " binary available for your operating system and architecture.\n\nTo find a compatible version, try https://github.com/avh4/elm-format\n";
 
-  console.log("Installing Elm " + requestedVersion + "...");
+  console.log("Installing Elm " + requestedVersion + " (and a compatible elm-format version)...");
 
-  binstall(url, {path: currentVersionDir, strip: 1}, {errorMessage: errorMessage}).then(function() {
+  Promise.all([
+    binstall(platformUrl, {path: currentVersionDir, strip: 1}, {errorMessage: platformError}),
+    binstall(elmFormatUrl, {path: currentVersionDir}, {errorMessage: elmFormatError})
+  ]).then(function() {
     activate();
   }).catch(function(err) {
     fsExtra.removeSync(currentVersionDir);

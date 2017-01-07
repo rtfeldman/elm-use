@@ -26,7 +26,8 @@
     "elm-make": "binaries/elm-make",
     "elm-package": "binaries/elm-package",
     "elm-reactor": "binaries/elm-reactor",
-    "elm-repl": "binaries/elm-repl"
+    "elm-repl": "binaries/elm-repl",
+    "elm-format": "binaries/elm-format"
   },
   "homepage": "https://github.com/rtfeldman/elm-use#readme",
   "dependencies": {
