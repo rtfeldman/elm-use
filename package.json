@@ -1,0 +1,36 @@
+{
+  "name": "elm-use",
+  "version": "1.0.0",
+  "description": "Switch between different versions of Elm.",
+  "main": "use.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rtfeldman/elm-use.git"
+  },
+  "keywords": [
+    "elm",
+    "version",
+    "manager"
+  ],
+  "author": "Richard Feldman",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/rtfeldman/elm-use/issues"
+  },
+  "bin": {
+    "elm": "binaries/elm",
+    "elm-make": "binaries/elm-make",
+    "elm-package": "binaries/elm-package",
+    "elm-reactor": "binaries/elm-reactor",
+    "elm-repl": "binaries/elm-repl"
+  },
+  "homepage": "https://github.com/rtfeldman/elm-use#readme",
+  "dependencies": {
+    "binstall": "1.1.0",
+    "fs-extra": "1.0.0",
+    "homedir": "0.6.0"
+  }
+}
