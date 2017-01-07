@@ -43,8 +43,6 @@ if (fs.existsSync(currentVersionDir)) {
 } else {
   var binstall = require("binstall");
 
-  fsExtra.mkdirp(currentVersionDir);
-
   // 'arm', 'ia32', or 'x64'.
   var arch = process.arch;
 
