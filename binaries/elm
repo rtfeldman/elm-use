@@ -1,1 +1,10 @@
-echo "Run use-elm 0.18 to use Elm 0.18. (Or a different version if you prefer.) If necessary, that version of Elm will be downloaded."
+#!/usr/bin/env node
+
+// If the user runs `elm use 0.18`, make it work as expected.
+if (process.argv[2] === "use") {
+  var spawn = require("child_process").spawn;
+
+  spawn("elm-use", process.argv.slice(3), {stdio: "inherit"});
+} else {
+  console.log("Run use-elm 0.18 to use Elm 0.18. (Or a different version if you prefer.) If necessary, that version of Elm will be downloaded.");
+}
