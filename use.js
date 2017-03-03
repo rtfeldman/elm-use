@@ -16,7 +16,7 @@ if (requestedVersion === "--version") {
 
   console.log(packageInfo.version);
 
-  process.exit(1);
+  process.exit(0);
 }
 
 function hasOnlyOneDot(str) {
