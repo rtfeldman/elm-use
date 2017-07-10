@@ -6,7 +6,10 @@ var path = require("path");
 var packageInfo = require("./package.json");
 var requestedVersion = process.argv[2];
 
-if (typeof requestedVersion !== "string" || !requestedVersion.match(/\d+/)) {
+if (
+  typeof requestedVersion !== "string" ||
+  (requestedVersion !== "latest" && !requestedVersion.match(/\d+/))
+) {
   console.log("elm-use " + packageInfo.version);
 
   process.exit(1);
