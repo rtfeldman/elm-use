@@ -6,19 +6,16 @@ var path = require("path");
 var packageInfo = require("./package.json");
 var requestedVersion = process.argv[2];
 
-if (
-  typeof requestedVersion !== "string" ||
-  (requestedVersion !== "latest" && !requestedVersion.match(/\d+/))
-) {
-  console.log("elm-use " + packageInfo.version);
-
-  process.exit(1);
-}
-
 if (requestedVersion === "--version") {
   console.log(packageInfo.version);
 
   process.exit(0);
+}
+
+if (typeof requestedVersion !== "string" || !requestedVersion.match(/\d+/)) {
+  console.log('Unrecognized Elm version: "' + String(requestedVersion) + '"');
+
+  process.exit(1);
 }
 
 function hasOnlyOneDot(str) {
